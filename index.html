@@ -17,12 +17,23 @@
           <input type="text" class="searchInput" placeholder="Tìm kiếm..." />
           <div id="searchResults"></div>
         </div>
-        <nav>
-          <a href="index.html">TRANG CHỦ</a>
-          <a href="sanpham.html">SẢN PHẨM</a>
-          <a href="gioithieu.html">GIỚI THIỆU</a>
-          <a href="lienhe.html">LIÊN HỆ</a>
+        <nav class="menu">
+          <div class="menu-item"><a href="index.html">Trang chủ</a></div>
+
+          <div class="menu-item with-submenu">
+            <span>Sản phẩm</span>
+            <div class="submenu">
+              <a href="#" class="submenu-item">Hoa Len Lẻ</a>
+              <a href="#" class="submenu-item">Bó hoa len</a>
+              <a href="#" class="submenu-item">Phụ Kiện Len</a>
+              <a href="#" class="submenu-item">Len Trang Trí</a>
+            </div>
+          </div>
+
+          <div class="menu-item"><a href="lienhe.html">Liên Hệ</a></div>
+          <div class="menu-item"><a href="gioithieu.html">Giới Thiệu</a></div>
         </nav>
+
         <div class="icons">
           <button class="cart-icon">🛒</button>
           <div id="cartResults"></div>
