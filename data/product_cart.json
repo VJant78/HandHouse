@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Hướng Dương Nhỏ",
+    "price": "500.000 đ",
+    "oldPrice": "520.000 đ",
+    "img": "https://placehold.co/500x800"
+  },
+  {
+    "id": 2,
+    "name": "Set 2 bó nhỏ",
+    "price": "990.000 đ",
+    "oldPrice": "1.000.000 đ",
+    "img": "https://placehold.co/500x800"
+  },
+  {
+    "id": 3,
+    "name": "Vòng tay ngôi sao",
+    "price": "39.000 đ",
+    "oldPrice": "50.000 đ",
+    "img": "https://placehold.co/500x800"
+  }
+]
