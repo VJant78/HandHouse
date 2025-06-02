@@ -1,51 +1,148 @@
 <!DOCTYPE html>
 <html lang="vi">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+    <meta charset="UTF-8">
     <title>HandHouse | Sản phẩm handmade</title>
     <link rel="stylesheet" href="style.css" />
     <script src="script.js"></script>
-  </head>
-  <body>
-    <div>
-      <header>
-        <img src="image/logo.png" alt="Hand House Logo" width="8%" />
-      </header>
-      <hr style="border: 2px solid #ff6600; margin: 3px 0px" />
-      <nav>
+</head>
+<body>
+    <div class="fix">
+        <header>
+        <img src="shop/logono.png" alt="Hand House Logo" width="8%">
+    </header>
+    <nav>
         <div class="search-box">
-          <input type="text" class="searchInput" placeholder="Tìm kiếm..." />
-          <div id="searchResults"></div>
+            <input type="text" class="searchInput" placeholder="Tìm kiếm...">
+            <div id="searchResults"></div>
         </div>
-        <nav class="menu">
-          <div class="menu-item"><a href="index.html">Trang chủ</a></div>
-
-          <div class="menu-item with-submenu">
-            <span>Sản phẩm</span>
-            <div class="submenu">
-              <a href="#" class="submenu-item">Hoa Len Lẻ</a>
-              <a href="#" class="submenu-item">Bó hoa len</a>
-              <a href="#" class="submenu-item">Phụ Kiện Len</a>
-              <a href="#" class="submenu-item">Len Trang Trí</a>
+        <nav class="menu-links">
+            <a href="index.html">TRANG CHỦ</a>
+            <div class="dropdown">
+                <a href="sanpham.html">SẢN PHẨM</a>
+                <div class="dropdown-content">
+                    <a href="hoale.html">Hoa len lẻ</a>
+                    <a href="hoabo.html">Hoa len bó</a>
+                    <a href="bohoaset.html">Bó hoa đất sét</a>
+                    <a href="vongtay.html">Vòng tay handmade</a>
+                    <a href="tuixach.html">Túi xách len</a>
+                </div>
             </div>
-          </div>
-
-          <div class="menu-item"><a href="lienhe.html">Liên Hệ</a></div>
-          <div class="menu-item"><a href="gioithieu.html">Giới Thiệu</a></div>
+            <a href="gioithieu.html">GIỚI THIỆU</a>
+            <a href="lienhe.html">LIÊN HỆ</a>
         </nav>
-
         <div class="icons">
-          <button class="cart-icon">🛒</button>
-          <div id="cartResults"></div>
-          <span><a href="account.html">👤</a></span>
+            <span><a href="giohang.html">🛒</a></span>
+            <span><a href="account.html">👤</a></span>
         </div>
-      </nav>
-      <hr style="border: 2px solid #ff6600; margin: 3px 0px" />
+    </nav>
     </div>
     <section class="products-section">
-      <h2>SẢN PHẨM BÁN CHẠY</h2>
-      <div class="product-list" id="productList"></div>
-      <a class="more" href="sanpham.html">Xem thêm ➤</a>
+        <div class="van">
+            <h2>SẢN PHẨM BÁN CHẠY</h2>
+        <div class="product-list">
+                <div class="product">
+                    <a style="text-decoration: none;" href="sanpham.html"><img src="img/HDL.jpg" alt="Hướng Dương Lớn">
+                    <div class="product-name">Hướng Dương Lớn</div></a>
+                    <div class="price">
+                        <span class="old-price">520.000 đ</span>➜500.000 đ
+                    </div>
+                    <button class="order-btn">Thêm vào giỏ hàng</button>
+                </div>
+                <div class="product">
+                    <img src="img/setcombo.jpg" alt="Túi xách gấu">
+                    <div class="product-name">Túi xách gấu</div>
+                    <div class="price">
+                        <span class="old-price">200.000 đ</span>➜159.000 đ
+                    </div>
+                    <button class="order-btn">Thêm vào giỏ hàng</button>
+                </div>
+                <div class="product">
+                    <img src="img/vongtayhot.jpg" alt="Vòng tay ngôi sao">
+                    <div class="product-name">Vòng tay ngôi sao</div>
+                    <div class="price">
+                        <span class="old-price">50.000 đ</span>➜39.000 đ
+                    </div>
+                    <button class="order-btn">Thêm vào giỏ hàng</button>
+                </div>
+                <div class="product">
+                    <img src="img/hoadatsetvang.png" alt="Hoa đất sét">
+                    <div class="product-name">Bó hoa đất sét (vàng)</div>
+                    <div class="price">
+                        <span class="old-price">290.000 đ</span>➜255.000 đ
+                    </div>
+                    <button class="order-btn">Thêm vào giỏ hàng</button>
+            </div>
+        </div>
+        <a class="more" href="sanpham.html">Xem thêm ➤</a><br>
+        <hr style="margin-top: 50px; margin-left: 500px; margin-right: 500px;">
+        <div style="margin-top: 70px;">
+            <h2>SẢN PHẨM ƯU ĐÃI</h2>
+            <div class="product-list">
+                <div class="product">
+                    <img src="img/bohoauudai.png" alt="Hoa len lớn">
+                    <div class="product-name">Bó hoa len lớn</div>
+                    <div class="price">
+                        <span class="old-price">220.000 đ</span>➜179.000 đ
+                    </div>
+                    <button class="order-btn">Thêm vào giỏ hàng</button>
+                </div>
+                <div class="product">
+                    <img src="img/hoacucbi.png" alt="Hoa len lẻ">
+                    <div class="product-name">Hoa cúc bi lẻ</div>
+                    <div class="price">
+                        <span class="old-price">40.000 đ</span>➜29.000 đ
+                    </div>
+                    <button class="order-btn">Thêm vào giỏ hàng</button>
+                </div>
+                <div class="product">
+                    <img src="img/vòng basic.png" alt="Vòng tay basic">
+                    <div class="product-name">Vòng tay basic</div>
+                    <div class="price">
+                        <span class="old-price">45.000 đ</span>➜23.000 đ
+                    </div>
+                    <button class="order-btn">Thêm vào giỏ hàng</button>
+                </div>
+                <div class="product">
+                    <img src="img/lavender.png" alt="Hoa len lẻ">
+                    <div class="product-name">Hoa lavender lẻ</div>
+                    <div class="price">
+                        <span class="old-price">49.000 đ</span>➜35.000 đ
+                    </div>
+                    <button class="order-btn">Thêm vào giỏ hàng</button>
+                </div>
+            </div>
+        </div>
     </section>
-  </body>
+     <footer class="footer">
+    <div class="footer-top"></div>
+
+    <div class="footer-main">
+      <div class="footer-left">
+        <img src="shop/logono.png" alt="HandHouse Logo" class="logo">
+        <p><strong>Liên hệ:</strong> 0941156920<br>
+          <strong>Email:</strong> handhouse674@gmail.com<br>
+          <strong>Địa chỉ:</strong> 1/5A 17, khu phố Bình Đáng, phường Bình Hoà, thành phố Thuận An, tỉnh Bình Dương.
+        </p>
+      </div>
+
+      <div class="footer-center">
+        <h3>VỀ CHÚNG TÔI</h3>
+        <ul>
+          <li><a href="gioithieu.html">> Giới thiệu</a></li>
+          <li><a href="sanpham.html">> Cửa hàng</a></li>
+          <li><a href="lienhe.html">> Liên hệ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-right">
+        <img src="shop/handmade.png" alt="handmade" class="decor-image">
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>Copyright 2025 © HandHouse</p>
+    </div>
+  </footer>
+</body>
 </html>

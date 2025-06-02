@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HandHouse | Handmade</title>
+    <style>
+        body {font-family: Arial, sans-serif;
+              background-color: #f5f5f5;
+              color: #333;}
+        nav {background-color: #ff6600;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;} 
+        header {background-image: url(shop/backgroud.jpg);
+                background-size: 1530px;
+                height: 130px;}
+        p {line-height: 1.5;}
+        .fix {display: block;
+              box-shadow: 0px 2px 2px rgba(0,0,0,0.5); 
+              position: fixed; 
+              top: 0; 
+              left: 0;
+              z-index: 100000;
+              width: 100%;
+              height: 35px;}
+        .van {padding-top: 210px;
+                padding-bottom: 80px;}
+        .search-box {display: flex;
+                    align-items: center;
+                    background-color: white;
+                    border-radius: 10px;
+                    padding: 5px 10px;}
+        .search-box input {border: none;
+                           outline: none;
+                           padding: 5px;}
+        nav a {color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: large;}
+        nav a:hover {font-weight: bolder;}
+        .menu-links a, .dropdown a {color: white;
+                                    text-decoration: none;
+                                    margin: 0 10px;
+                                    font-size: large;
+                                    font-family: Arial, Helvetica, sans-serif;}
+        .menu-links a:hover, .dropdown > a :hover {font-weight: bolder;}
+        .dropdown {position: relative;
+                    display: inline-block;}
+        .dropdown-content {display: none;
+                            position: absolute;
+                            background-color: white;
+                            min-width: 160px;
+                            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+                            z-index: 1000;
+                            border-radius: 6px;
+                            overflow: hidden;}
+        .dropdown-content a {color: #333;
+                            padding: 10px 14px;
+                            text-decoration: none;
+                            display: block;
+                            font-size: 14px;
+                            font-weight: normal;}
+        .dropdown-content a:hover { background-color: #f26522;
+                                    color: white;}
+        .dropdown:hover .dropdown-content {display: block;}
+        .icons span {margin-left: 15px;
+                     font-size: 30px;
+                    color: white;}
+        .main {display: flex;
+                padding: 20px;
+                background-color: #fff;}
+        .sidebar {width: 20%;
+                  padding-right: 20px;}
+        .sidebar h3 {font-size: 16px;
+                     margin-bottom: 10px;}
+        .sidebar ul {list-style: none;
+                     margin-bottom: 20px;}
+        .sidebar ul li a {margin: 6px 0;
+                        color: #f26522;
+                        font-size: large;
+                        cursor: pointer;
+                        text-decoration: none;
+                        line-height: 1.5;}
+        .sidebar ul li a:hover {font-weight: bolder;}
+        .featured {font-size: 14px;}
+        .featured-items {display: flex;
+                        align-items: center;
+                        gap: 15px;
+                        margin: 5px;}
+        .featured-items img {width: 30%;
+                            height: auto;
+                            border-radius: 8px;
+                            transition: transform 0.3s ease, box-shadow 0.3s ease;}
+        .featured-items p {margin: 0;
+                            font-size: 14px;
+                            color: #f26522;
+                            line-height: 1.4;}
+        .featured a {text-decoration: none;}
+        .featured a:hover {font-weight: bolder;}
+        .featured-items img:hover {transform: scale(1.05);
+                                    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);}
+        .content {width: 80%;}
+        .content h2 {color: #f26522;
+                    font-size: 20px;
+                    margin-bottom: 10px;}
+        .content p {text-align: justify;
+                    line-height: 1.5;}
+        .products {display: grid;
+                   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                   gap: 20px;}          
+        .product {border: 1px solid #ccc;
+                  border-radius: 12px;
+                  padding: 10px;
+                  margin: 5px;
+                  text-align: center;
+                  transition: transform 0.3s ease, box-shadow 0.3s ease;}
+        .product img {width: 100%;
+                      border-radius: 12px;}
+        .product h4 {margin: 10px 0 5px;
+                     font-size: 16px;}
+        .product p {font-weight: 16px;
+                    color: #f26522;
+                    margin: 5px 0;}
+        .product:hover {transform: scale(1.05);
+                        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);}
+        .product del {color: #888;
+                      margin-right: 5px;}
+        .product button {background-color: #f26522;
+                        color: white;
+                        border: none;
+                        padding: 8px 16px;
+                        border-radius: 6px;
+                        cursor: pointer;
+                        font-weight: bold;}
+        .product button:hover {background-color: #ff6600;
+                                font-weight: bolder;}
+        .price-filter {margin: 10px 0;
+                       text-align: right;
+                       font-size: 14px;}
+        .footer {background-color: #fff5f0;
+                 color: #000;}
+        .footer-top {border-top: 5px solid #f08045;}
+        .footer-main {display: flex;
+                      justify-content: space-between;
+                      padding: 30px 40px;
+                      background-color: #ffe5d2;}
+        .footer-left,
+        .footer-center,
+        .footer-right {flex: 1;
+                        margin: 0 20px;
+                        font-size: large;}
+        .logo {width: 80px;
+               margin-bottom: 10px;}
+        .footer-center h3 {font-size: 18px;
+                            margin-bottom: 10px;
+                            border-bottom: 1px solid #ccc;
+                            padding-bottom: 5px;
+                            padding-top: 10px;}
+        .footer-center ul {list-style: none;
+                            padding: 0;}
+        .footer-center ul li {margin-bottom: 6px;}
+        .footer-center ul li a {text-decoration: none;
+                                color: #000;}
+        .footer-center ul li a:hover {color: #f08045;}
+        .decor-image {width: 100%;
+                      max-width: 300px;
+                      padding-left: 100px;}
+        .footer-bottom {text-align: center;
+                        background-color: #f9a577;
+                        padding: 10px 0;
+                        font-weight: bold;
+                        color: #844000;}
+    </style>
+</head>
+<body>
+    <div class="fix">
+        <header>
+        <img src="shop/logono.png" alt="Hand House Logo" width="8%">
+        </header>
+    <nav>
+        <div class="search-box">
+            <input type="text" placeholder="Tìm kiếm...">
+        </div>
+        <div class="menu-links">
+            <a href="index.html">TRANG CHỦ</a>
+            <div class="dropdown">
+                <a href="sanpham.html">SẢN PHẨM</a>
+                <div class="dropdown-content">
+                    <a href="hoale.html">Hoa len lẻ</a>
+                    <a href="hoabo.html">Hoa len bó</a>
+                    <a href="bohoaset.html">Bó hoa đất sét</a>
+                    <a href="vongtay.html">Vòng tay handmade</a>
+                    <a href="tuixach.html">Túi xách len</a>
+                </div>
+            </div>
+            <a href="gioithieu.html">GIỚI THIỆU</a>
+            <a href="lienhe.html">LIÊN HỆ</a>
+        </div>
+        <div class="icons">
+            <span><a href="giohang.html">🛒</a></span>
+            <span><a href="account.html">👤</a></span>
+        </div>
+    </nav>
+    </div>
+    <section class="van">
+        <div class="price-filter">
+            Lọc khoảng giá (₫): <input type="range" min="0" max="300000" value="0"> 300.000₫
+        </div>
+        <div class="main">
+            <div class="sidebar">
+            <h3>Danh mục sản phẩm</h3>
+            <ul>
+                <li><a href="hoale.html">Hoa len lẻ</a></li>
+                <li><a href="hoabo.html">Hoa len bó</a></li>
+                <li><a href="bohoaset.html">Bó hoa đất sét</a></li>
+                <li><a href="vongtay.html">Vòng tay handmade</a></li>
+                <li><a href="tuixach.html">Túi xách len</a></li>
+            </ul>
+                <div class="featured">
+                    <h3>Sản phẩm nổi bật</h3>
+                    <a href="">
+                        <div class="featured-items">
+                            <img src="img/HDL.jpg" alt="Hoa hướng dương">
+                            <p>Bó hoa hướng dương bằng len thủ công cao cấp !!</p>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="featured-items">
+                            <img src="img/vongtaycharmhoa.png" alt="Vòng tay charm hoa">
+                            <p>Vòng tay đính các charm hoa tinh tế</p>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="featured-items">
+                            <img src="img/hoabaplen6canh.png" alt="Hoa bắp len 6 cánh">
+                            <p>Hoa bắp len 6 cánh lẻ nhuỵ vàng dễ thương</p>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="featured-items">
+                            <img src="img/tuixachlenponny.png" alt="Túi xách len thú">
+                            <p>Túi xách đan tay bắng len cao cấp</p>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="featured-items">
+                            <img src="img/hoamaudon.png" alt="Hoa mẫu đơn">
+                            <p>Hoa mẫu đơn hồng to</p>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="featured-items">
+                            <img src="img/bohoadatdettuoc.png" alt="hoa đất">
+                            <p>Bó hoa đất sét con gấu và con heo</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="content">
+                <h2>Hoa len bó (handmade)</h2>
+                <p>Bạn đang tìm một món quà thật khác biệt, ý nghĩa và lâu bền? Hoa Len Bó Handmade là lựa chọn lý tưởng để thay lời yêu thương gửi đến người bạn trân quý
+                .Từng bông hoa len là kết quả của sự tỉ mỉ trong từng mũi móc, kết hợp màu sắc hài hoà, gói gọn trong một thiết kế độc đáo và sang trọng.</p>
+                <h2>Một số hoa len bó hot hit của shop</h2>
+                <p>Tại Handhouse có sẵn vô vàn nhiều loại hoa len bó khác nhau như: hoa hướng dương, hoa cẩm chướng, hoa tuylip hoa hồng và nhiều bó hoa mix rất đẹp. <br>
+                    <b>Bó hoa hướng dương thủ công</b> : Đây là mẫu bó hoa chủ lực tại cửa hàng .Với tone vàng rực rỡ đặc trưng của hoa hướng dương, bó hoa là biểu tượng cho 
+                    sự kiên trì và sức sống mãnh liệt. Đây cũng là sản phẩm chủ lực, hoa hướng dương thường bán chạy vào mùa tựu trường, mùa tốt nghiệp và đây là một 
+                    trong những sản phẩm được ưa chuộng trong danh sách bó hoa len handmade được yêu thích nhất của shop!!!</p>
+                <p>
+                    <img src="img/HDL.jpg" alt="Hoa Hướng Dương" width="30%">
+                </p>
+                <div class="products">
+                    <div class="product">
+                        <img src="img/lucbinh.png" alt="Hoa lục bình">
+                        <h4>Hoa oải hương</h4>
+                        <p><del>35.000₫</del> 23.000₫</p>
+                        <button>THÊM VÀO GIỎ HÀNG</button>
+                    </div>
+                    <div class="product">
+                        <img src="img/lavender.png" alt="Hoa lavender">
+                        <h4>Hoa lavender</h4>
+                        <p><del>45.000₫</del> 29.000₫</p>
+                        <button>THÊM VÀO GIỎ HÀNG</button>
+                    </div>
+                    <div class="product">
+                        <img src="img/hoacucbi.png" alt="Hoa cúc bi">
+                        <h4>Hoa cúc bi</h4>
+                        <p><del>35.000₫</del> 23.000₫</p>
+                        <button>THÊM VÀO GIỎ HÀNG</button>
+                    </div>
+                    <div class="product">
+                        <img src="img/hoaanhdao.png" alt="Hoa anh đào">
+                        <h4>Hoa anh đào</h4>
+                        <p><del>45.000₫</del> 30.000₫</p>
+                        <button>THÊM VÀO GIỎ HÀNG</button>
+                    </div>
+                </div>
+                <div class="products">
+                    <div class="product">
+                        <img src="img/hoamaudon.png" alt="Hoa mẫu đơn">
+                        <h4>Hoa mẫu đơn</h4>
+                        <p><del>45.000₫</del> 30.000₫</p>
+                        <button>THÊM VÀO GIỎ HÀNG</button>
+                    </div>
+                    <div class="product">
+                        <img src="img/hoacamchuong.png" alt="Hoa cẩm chướng">
+                        <h4>Hoa cẩm chướng</h4>
+                        <p><del>35.000₫</del> 23.000₫</p>
+                        <button>THÊM VÀO GIỎ HÀNG</button>
+                    </div>
+                    <div class="product">
+                        <img src="img/hoahongvientim.png" alt="Hoa hồng trắng viền tím">
+                        <h4>Hoa hồng trắng viền tím</h4>
+                        <p><del>38.000₫</del> 25.000₫</p>
+                        <button>THÊM VÀO GIỎ HÀNG</button>
+                    </div>
+                    <div class="product">
+                        <img src="img/hoahongdo.png" alt="Hoa hồng đỏ">
+                        <h4>Hoa hồng đỏ</h4>
+                        <p><del>38.000₫</del> 25.000₫</p>
+                        <button>THÊM VÀO GIỎ HÀNG</button>
+                    </div>
+                </div>
+                <div class="products">
+                    <div class="product">
+                        <img src="img/hoahongtrangnhihong.png" alt="Hoa hồng trắng nhuỵ hồng phấn">
+                        <h4>Hoa hồng trắng nhuỵ hồng phấn</h4>
+                        <p><del>38.000₫</del> 25.000₫</p>
+                        <button>THÊM VÀO GIỎ HÀNG</button>
+                    </div>
+                    <div class="product">
+                        <img src="img/hoabaplen6canh.png" alt="Hoa bắp len 6 cánh">
+                        <h4>Hoa bắp len 6 cánh</h4>
+                        <p><del>35.000₫</del> 23.000₫</p>
+                        <button>THÊM VÀO GIỎ HÀNG</button>
+                    </div>
+                    <div class="product">
+                        <img src="img/hoalynhivang.png" alt="Hoa ly nhuỵ vàng">
+                        <h4>Hoa ly nhuỵ vàng</h4>
+                        <p><del>39.000₫</del> 27.000₫</p>
+                        <button>THÊM VÀO GIỎ HÀNG</button>
+                    </div>
+                    <div class="product">
+                        <img src="img/hoacuchoami.png" alt="Hoa cúc hoạ mi">
+                        <h4>Hoa cúc hoạ mi</h4>
+                        <p><del>35.000₫</del> 23.000₫</p>
+                        <button>THÊM VÀO GIỎ HÀNG</button>
+                    </div>
+                </div>
+                <h2>Chính Sách Mua Hàng & Giao Hàng</h2>
+                <p>
+                    <ul style="line-height: 1.5;">
+                        <li>Đổi trả miễn phí trong vòng 3 ngày nếu sản phẩm bị lỗi do sản xuất.</li>
+                        <li>Giao hàng toàn quốc - Giao nhanh nội thành trong 1 - 2 ngày. </li>
+                        <li>Thanh toán linh hoạt: Chuyển khoản hoặc COD.</li>
+                        <li>Ưu đãi: Giảm 10% cho đơn từ 5 bông trở lên hoặc đơn >300.000 đ.</li>
+                    </ul>
+                </p>
+                <h2>Thông Tin Liên Hệ</h2>
+                <p>
+                    <ul style="line-height: 1.5;">
+                        <li>Địa chỉ: 1/5A 17, khu phố Bình Đáng, phường Bình Hoà, thành phố Thuận An, tỉnh Bình Dương.</li>
+                        <li>Hotline: 0941156920.</li>
+                        <li>Kết nối với chúng tôi để cập nhật những mẫu hoa mới nhất!</li>
+                        
+                    </ul>
+                </p>
+            </div>
+        </div>
+            </section>
+        <footer class="footer">
+            <div class="footer-top"></div>
+
+            <div class="footer-main">
+            <div class="footer-left">
+                <img src="shop/logono.png" alt="HandHouse Logo" class="logo">
+                <p><strong>Liên hệ:</strong> 0941156920<br>
+                <strong>Email:</strong> handhouse674@gmail.com<br>
+                <strong>Địa chỉ:</strong> 1/5A 17, khu phố Bình Đáng, phường Bình Hoà, thành phố Thuận An, tỉnh Bình Dương.
+                </p>
+            </div>
+            <div class="footer-center">
+                <h3>VỀ CHÚNG TÔI</h3>
+                <ul>
+                <li><a href="gioithieu.html">> Giới thiệu</a></li>
+                <li><a href="sanpham.html">> Cửa hàng</a></li>
+                <li><a href="lienhe.html">> Liên hệ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-right">
+                <img src="shop/handmade.png" alt="handmade" class="decor-image">
+            </div>
+            </div>
+
+    <div class="footer-bottom">
+      <p>Copyright 2025 © HandHouse</p>
+    </div>
+  </footer>
+</body>
+</html>

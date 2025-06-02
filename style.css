@@ -12,9 +12,26 @@ nav {
   justify-content: space-between;
 }
 header {
-  background-image: url(image/background.png);
+  background-image: url(shop/backgroud.jpg);
   background-size: 1530px;
-  height: 150px;
+  height: 130px;
+}
+p {
+  line-height: 1.5;
+}
+.fix {
+  display: block;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100000;
+  width: 100%;
+  height: 35px;
+}
+.van {
+  padding-top: 210px;
+  padding-bottom: 80px;
 }
 .search-box {
   display: flex;
@@ -22,112 +39,67 @@ header {
   background-color: white;
   border-radius: 10px;
   padding: 5px 10px;
-  position: relative;
-  width: 300px;
 }
-.searchInput {
-  width: 100%;
+.search-box input {
   border: none;
   outline: none;
-  box-shadow: none;
+  padding: 5px;
 }
-nav.menu {
-  background-color: #ff6600;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.menu-item {
-  position: relative;
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: large;
-  color: white;
-  cursor: pointer;
 }
-
-.menu-item > a,
-.menu-item > span {
-  color: white;
-  text-decoration: none;
-  padding: 8px 12px;
-  display: inline-block;
-}
-
-.menu-item > a:hover,
-.menu-item > span:hover {
+nav a:hover {
   font-weight: bolder;
 }
-
-/* Submenu chính */
-.with-submenu .submenu {
+.menu-links a,
+.dropdown a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: large;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.menu-links a:hover,
+.dropdown > a :hover {
+  font-weight: bolder;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
   display: none;
   position: absolute;
-  top: 110%; /* đẩy xuống dưới một chút */
-  left: 0;
   background-color: white;
-  border: 2px solid #ff6600;
-  border-radius: 8px;
-  min-width: 180px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  z-index: 100;
-  padding: 10px 0;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  border-radius: 6px;
+  overflow: hidden;
 }
-
-/* Hiện khi hover */
-.with-submenu:hover .submenu {
-  display: block;
-}
-
-/* Tạo mũi nhọn hướng lên */
-.with-submenu .submenu::before {
-  content: "";
-  position: absolute;
-  top: -10px;
-  left: 20px;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-bottom: 10px solid white;
-}
-.menu-item::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 100%;
-  height: 10px; /* buffer khoảng trống giữa cha và submenu */
-  width: 100%;
-}
-
-/* Mục con */
-.submenu-item {
+.dropdown-content a {
   color: #333;
-  border-top: 1px solid white;
+  padding: 10px 14px;
   text-decoration: none;
-  /* padding: 8px 16px; */
   display: block;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 15px;
-  white-space: nowrap;
-  padding: 10px;
-  text-align: center;
+  font-size: 14px;
+  font-weight: normal;
 }
-
-.submenu-item:hover {
-  background-color: #f2f2f2;
-  font-weight: bold;
+.dropdown-content a:hover {
+  background-color: #f26522;
+  color: white;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 .icons span {
   margin-left: 15px;
   font-size: 30px;
   color: white;
-}
-.icons button {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 30px;
-  cursor: pointer;
 }
 .products-section {
   padding: 20px;
@@ -145,11 +117,16 @@ nav.menu {
 .product {
   border: 1px solid #ccc;
   border-radius: 10px;
-  width: 180px;
+  width: 260px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .product img {
   width: 100%;
   border-radius: 10px;
+}
+.product:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 }
 .product-name {
   font-weight: bold;
@@ -166,6 +143,7 @@ nav.menu {
 .order-btn {
   display: inline-block;
   margin-top: 10px;
+  margin-bottom: 5px;
   padding: 5px 10px;
   background-color: #ff9966;
   color: white;
@@ -182,6 +160,78 @@ nav.menu {
   display: inline-block;
   font-weight: bold;
   color: #444;
+}
+.footer {
+  background-color: #fff5f0;
+  color: #000;
+}
+.footer-top {
+  border-top: 5px solid #f08045;
+}
+.footer-main {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 40px;
+  background-color: #ffe5d2;
+}
+.footer-left,
+.footer-center,
+.footer-right {
+  flex: 1;
+  margin: 0 20px;
+  font-size: large;
+}
+.logo {
+  width: 80px;
+  margin-bottom: 10px;
+}
+.footer-center h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+  padding-top: 10px;
+}
+.footer-center ul {
+  list-style: none;
+  padding: 0;
+}
+.footer-center ul li {
+  margin-bottom: 6px;
+}
+.footer-center ul li a {
+  text-decoration: none;
+  color: #000;
+}
+.footer-center ul li a:hover {
+  color: #f08045;
+}
+.decor-image {
+  width: 100%;
+  max-width: 300px;
+  padding-left: 100px;
+}
+.footer-bottom {
+  text-align: center;
+  background-color: #f9a577;
+  padding: 3px 0;
+  font-weight: bold;
+  color: #844000;
+}
+.search-box {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  padding: 5px 10px;
+  position: relative;
+  width: 300px;
+}
+.searchInput {
+  width: 100%;
+  border: none;
+  outline: none;
+  box-shadow: none;
 }
 #searchResults {
   position: absolute;
@@ -227,19 +277,4 @@ nav.menu {
 #searchResults .search-result-item {
   padding: 10px;
   color: #ff6600;
-}
-
-#cartResults {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  background: #fff;
-  border: 1px solid #ff6600;
-  border-top: none;
-  z-index: 10;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  max-height: 250px;
-  overflow-y: auto;
-  display: none;
 }

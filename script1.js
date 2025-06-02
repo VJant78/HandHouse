@@ -1,3 +1,25 @@
+async function fetchBestSellerProducts() {
+  try {
+    const response = await fetch("data/products_best_seller.json");
+    if (!response.ok) throw new Error("Network response was not ok");
+    products_best_seller = await response.json();
+    renderBestSellerProducts(products_best_seller);
+  } catch (error) {
+    console.error("Lỗi khi tải dữ liệu sản phẩm bán chạy:", error);
+  }
+}
+async function fetchCart() {
+  try {
+    const response = await fetch("data/products_cart.json");
+    if (!response.ok) throw new Error("Network response was not ok");
+    products_cart = await response.json();
+    renderCartProducts(products_cart);
+  } catch (error) {
+    console.error("Lỗi khi tải dữ liệu sản phẩm bán chạy:", error);
+  }
+}
+
+
 async function fetchSearchProduct() {
   try {
     const response = await fetch("data/products_list.json"); // lấy dữ liệu tất cả sản phẩm lên
@@ -58,6 +80,32 @@ function createSearchResultTable(products) {
   });
   table.appendChild(tbody);
   return table;
+}
+
+function renderBestSellerProducts(products_best_seller) {
+  const productList = document.getElementById("productList");
+  if (!productList) return;
+  productList.innerHTML = products_best_seller
+    .slice(0, 5)
+    .map(
+      (product) => `
+    <div class="product">
+        <div onclick="window.location.href='sanpham.html/${product.id}'">
+            <img src="${product.img || "https://placehold.co/500x800"}" alt="${
+        product.name
+      }" />
+            <div class="product-name">${product.name}</div>
+            <div class="price">
+                <span class="old-price">${product.oldPrice}</span>➜${
+        product.price
+      }
+            </div>
+        </div>
+        <button class="order-btn">Đặt hàng</button>
+    </div>
+  `
+    )
+    .join("");
 }
 
 document.addEventListener("DOMContentLoaded", function () {
