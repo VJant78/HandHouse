@@ -78,14 +78,30 @@
                      margin-bottom: 10px;}
         .sidebar ul {list-style: none;
                      margin-bottom: 20px;}
-        .sidebar ul li {margin: 6px 0;
+        .sidebar ul li a {margin: 6px 0;
                         color: #f26522;
-                        font-weight: bold;
-                        cursor: pointer;}
+                        font-size: large;
+                        cursor: pointer;
+                        text-decoration: none;
+                        line-height: 1.5;}
+        .sidebar ul li a:hover {font-weight: bolder;}
         .featured {font-size: 14px;}
-        .featured img {width: 50%;
-                        height: auto;
-                        border-radius: 8px;}
+        .featured-items {display: flex;
+                        align-items: center;
+                        gap: 15px;
+                        margin: 5px;}
+        .featured-items img {width: 30%;
+                            height: auto;
+                            border-radius: 8px;
+                            transition: transform 0.3s ease, box-shadow 0.3s ease;}
+        .featured-items p {margin: 0;
+                            font-size: 14px;
+                            color: #f26522;
+                            line-height: 1.4;}
+        .featured a {text-decoration: none;}
+        .featured a:hover {font-weight: bolder;}
+        .featured-items img:hover {transform: scale(1.05);
+                                    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);}
         .content {width: 80%;}
         .content h2 {color: #f26522;
                     font-size: 20px;
@@ -93,11 +109,12 @@
         .content p {text-align: justify;
                     line-height: 1.5;}
         .products {display: grid;
-                   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
                    gap: 20px;}          
         .product {border: 1px solid #ccc;
                   border-radius: 12px;
                   padding: 10px;
+                  margin: 5px;
                   text-align: center;
                   transition: transform 0.3s ease, box-shadow 0.3s ease;}
         .product img {width: 100%;
@@ -162,12 +179,12 @@
     <div class="fix">
         <header>
         <img src="shop/logono.png" alt="Hand House Logo" width="8%">
-    </header>
+        </header>
     <nav>
         <div class="search-box">
             <input type="text" placeholder="Tìm kiếm...">
         </div>
-        <nav class="menu-links">
+        <div class="menu-links">
             <a href="index.html">TRANG CHỦ</a>
             <div class="dropdown">
                 <a href="sanpham.html">SẢN PHẨM</a>
@@ -181,12 +198,167 @@
             </div>
             <a href="gioithieu.html">GIỚI THIỆU</a>
             <a href="lienhe.html">LIÊN HỆ</a>
-        </nav>
+        </div>
         <div class="icons">
             <span><a href="giohang.html">🛒</a></span>
             <span><a href="account.html">👤</a></span>
         </div>
     </nav>
     </div>
+    <section class="van">
+        <div class="price-filter">
+            Lọc khoảng giá (₫): <input type="range" min="0" max="300000" value="0"> 300.000₫
+        </div>
+        <div class="main">
+            <div class="sidebar">
+            <h3>Danh mục sản phẩm</h3>
+            <ul>
+                <li><a href="hoale.html">Hoa len lẻ</a></li>
+                <li><a href="hoabo.html">Hoa len bó</a></li>
+                <li><a href="bohoaset.html">Bó hoa đất sét</a></li>
+                <li><a href="vongtay.html">Vòng tay handmade</a></li>
+                <li><a href="tuixach.html">Túi xách len</a></li>
+            </ul>
+                <div class="featured">
+                    <h3>Sản phẩm nổi bật</h3>
+                    <a href="">
+                        <div class="featured-items">
+                            <img src="img/HDL.jpg" alt="Hoa hướng dương">
+                            <p>Bó hoa hướng dương bằng len thủ công cao cấp !!</p>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="featured-items">
+                            <img src="img/vongtaycharmhoa.png" alt="Vòng tay charm hoa">
+                            <p>Vòng tay đính các charm hoa tinh tế</p>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="featured-items">
+                            <img src="img/hoabaplen6canh.png" alt="Hoa bắp len 6 cánh">
+                            <p>Hoa bắp len 6 cánh lẻ nhuỵ vàng dễ thương</p>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="featured-items">
+                            <img src="img/tuixachlenponny.png" alt="Túi xách len thú">
+                            <p>Túi xách đan tay bắng len cao cấp</p>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="featured-items">
+                            <img src="img/hoamaudon.png" alt="Hoa mẫu đơn">
+                            <p>Hoa mẫu đơn hồng to</p>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="featured-items">
+                            <img src="img/bohoadatdettuoc.png" alt="hoa đất">
+                            <p>Bó hoa đất sét con gấu và con heo</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="content">
+                <div id="product-container" class="products"></div>
+
+                <h2>Chính Sách Mua Hàng & Giao Hàng</h2>
+                <p>
+                    <ul style="line-height: 1.5;">
+                        <li>Đổi trả miễn phí trong vòng 3 ngày nếu sản phẩm bị lỗi do sản xuất.</li>
+                        <li>Giao hàng toàn quốc - Giao nhanh nội thành trong 1 - 2 ngày. </li>
+                        <li>Thanh toán linh hoạt: Chuyển khoản hoặc COD.</li>
+                        <li>Ưu đãi: Giảm 10% cho đơn từ 5 bông trở lên hoặc đơn >300.000 đ.</li>
+                    </ul>
+                </p>
+                <h2>Thông Tin Liên Hệ</h2>
+                <p>
+                    <ul style="line-height: 1.5;">
+                        <li>Địa chỉ: 1/5A 17, khu phố Bình Đáng, phường Bình Hoà, thành phố Thuận An, tỉnh Bình Dương.</li>
+                        <li>Hotline: 0941156920.</li>
+                        <li>Kết nối với chúng tôi để cập nhật những mẫu hoa mới nhất!</li>
+                        
+                    </ul>
+                </p>
+            </div>
+        </div>
+            </section>
+        <footer class="footer">
+            <div class="footer-top"></div>
+
+            <div class="footer-main">
+            <div class="footer-left">
+                <img src="shop/logono.png" alt="HandHouse Logo" class="logo">
+                <p><strong>Liên hệ:</strong> 0941156920<br>
+                <strong>Email:</strong> handhouse674@gmail.com<br>
+                <strong>Địa chỉ:</strong> 1/5A 17, khu phố Bình Đáng, phường Bình Hoà, thành phố Thuận An, tỉnh Bình Dương.
+                </p>
+            </div>
+            <div class="footer-center">
+                <h3>VỀ CHÚNG TÔI</h3>
+                <ul>
+                <li><a href="gioithieu.html">> Giới thiệu</a></li>
+                <li><a href="sanpham.html">> Cửa hàng</a></li>
+                <li><a href="lienhe.html">> Liên hệ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-right">
+                <img src="shop/handmade.png" alt="handmade" class="decor-image">
+            </div>
+            </div>
+
+    <div class="footer-bottom">
+      <p>Copyright 2025 © HandHouse</p>
+    </div>
+  </footer>
+  <script>
+    // ---------------------------------------------
+  const products = [
+    { name: "Hoa oải hương", img: "img/lucbinh.png", oldPrice: 35000, price: 23000 },
+    { name: "Hoa lavender", img: "img/lavender.png", oldPrice: 45000, price: 29000 },
+    { name: "Hoa cúc bi", img: "img/hoacucbi.png", oldPrice: 35000, price: 23000 },
+    { name: "Hoa anh đào", img: "img/hoaanhdao.png", oldPrice: 45000, price: 30000 },
+    { name: "Hoa mẫu đơn", img: "img/hoamaudon.png", oldPrice: 45000, price: 30000 },
+    { name: "Hoa cẩm chướng", img: "img/hoacamchuong.png", oldPrice: 35000, price: 23000 },
+    { name: "Hoa hồng trắng viền tím", img: "img/hoahongvientim.png", oldPrice: 38000, price: 25000 },
+    { name: "Hoa hồng đỏ", img: "img/hoahongdo.png", oldPrice: 38000, price: 25000 },
+    { name: "Hoa hồng trắng nhuỵ hồng phấn", img: "img/hoahongtrangnhihong.png", oldPrice: 38000, price: 25000 },
+    { name: "Hoa bắp len 6 cánh", img: "img/hoabaplen6canh.png", oldPrice: 35000, price: 23000 },
+    { name: "Hoa ly nhuỵ vàng", img: "img/hoalynhivang.png", oldPrice: 39000, price: 27000 },
+    { name: "Hoa cúc hoạ mi", img: "img/hoacuchoami.png", oldPrice: 35000, price: 23000 }
+  ];
+
+  const container = document.getElementById("product-container");
+
+  products.forEach((p, index) => {
+    const div = document.createElement("div");
+    div.className = "product";
+    div.innerHTML = `
+      <img src="${p.img}" alt="${p.name}">
+      <h4>${p.name}</h4>
+      <p><del>${p.oldPrice.toLocaleString()}₫</del> ${p.price.toLocaleString()}₫</p>
+      <button onclick="addToCart(${index})">THÊM VÀO GIỎ HÀNG</button>
+    `;
+    container.appendChild(div);
+  });
+
+  function addToCart(index) {
+    const product = products[index];
+    const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+
+    const existing = cart.find(item => item.name === product.name);
+    if (existing) {
+      alert(`"${product.name}" đã có trong giỏ hàng giỏ hàng!`);
+    } else {
+      cart.push({ ...product, quantity: 1 });
+      sessionStorage.setItem("cart", JSON.stringify(cart));
+      alert(`Đã thêm "${product.name}" vào giỏ hàng!`);
+    }
+
+
+  }
+</script>
+
 </body>
 </html>
